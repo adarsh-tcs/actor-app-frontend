@@ -1,0 +1,280 @@
+<div class="form-div-1">
+  <div class="card">
+    <h2 class="form-header" id="actorErrorMessage">Add Actor</h2>
+    <div class="form-div-2">
+      <div *ngIf="errorMessage != ''">
+        <div class="global-invalid-alert">
+          {{ errorMessage }}
+        </div>
+      </div>
+      <form [formGroup]="addActorForm" (ngSubmit)="onSubmitAddActor()">
+        <div class="form-group row">
+          <div class="col-sm-3">
+            <label for="actorName" class="col-form-label"
+              >Name <span class="mandatory-field">*</span></label
+            >
+          </div>
+          <div class="col-sm-6 form-input">
+            <input
+              type="text"
+              id="actorName"
+              class="form-control"
+              placeholder="Enter Actor's Name"
+              formControlName="name"
+            />
+          </div>
+          <div class="col-sm-3">
+            {{ addActorForm.get("name").value }}
+            <span
+              class="help-block"
+              *ngIf="
+                !addActorForm.get('name')?.valid &&
+                addActorForm.get('name')?.touched
+              "
+              >Please enter valid Name</span
+            >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-3">
+            <label for="actorEmail" class="col-form-label"
+              >Email Id
+              <span class="mandatory-field">*</span>
+            </label>
+          </div>
+          <div class="col-sm-6 form-input">
+            <input
+              type="text"
+              id="actorEmail"
+              class="form-control"
+              placeholder="Enter Actor's Email ID"
+              formControlName="emailId"
+            />
+          </div>
+          <div class="col-sm-3">
+            <span
+              class="help-block"
+              *ngIf="
+                !addActorForm.get('emailId')?.valid &&
+                addActorForm.get('emailId')?.touched
+              "
+              >Please enter valid Email</span
+            >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-3">
+            <label for="actorMobile" class="col-form-label"
+              >Mobile No.
+              <span class="mandatory-field">*</span>
+            </label>
+          </div>
+          <div class="col-sm-6">
+            <input
+              type="number"
+              id="actorMobile"
+              class="form-control"
+              placeholder="Enter Actor's Mobile No."
+              formControlName="mobile"
+            />
+          </div>
+          <div class="col-sm-3">
+            <span
+              class="help-block"
+              *ngIf="
+                !addActorForm.get('mobile')?.valid &&
+                addActorForm.get('mobile')?.touched
+              "
+            >
+              Please enter valid Mobile</span
+            >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-3">
+            <label for="actorDob" class="col-form-label"
+              >DOB<span class="mandatory-field">*</span></label
+            >
+          </div>
+
+          <div class="col-sm-6">
+            <input
+              type="date"
+              id="actorDob"
+              class="form-control"
+              formControlName="dob"
+            />
+          </div>
+          <div class="col-sm-3">
+            <span
+              class="help-block"
+              *ngIf="
+                !addActorForm.get('dob')?.valid &&
+                addActorForm.get('dob')?.touched
+              "
+            >
+              Please enter valid DOB</span
+            >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-3">
+            <label for="actorFee" class="col-form-label"
+              >Fee<span class="mandatory-field">*</span></label
+            >
+          </div>
+          <div class="col-sm-6">
+            <input
+              type="number"
+              step="0.01"
+              id="actorFee"
+              class="form-control"
+              placeholder="Enter Actor's Fee"
+              formControlName="fee"
+            />
+          </div>
+          <div class="col-sm-3">
+            <span
+              class="help-block"
+              *ngIf="
+                !addActorForm.get('fee')?.valid &&
+                addActorForm.get('fee')?.touched
+              "
+              >Please enter valid Fee</span
+            >
+          </div>
+        </div>
+
+        <div class="col-sm-12 movie-form">
+          <ng-container formArrayName="movieForm">
+            <h2 class="form-header" *ngIf="this.movieCount > 0">
+              Add Movie Details
+            </h2>
+            <div class="card" *ngIf="this.movieCount > 0">
+              <ng-container
+                *ngFor="let movies of movieForm.controls; let idx = index"
+              >
+                <ng-container [formGroupName]="idx">
+                  <div
+                    class="help-block"
+                    *ngIf="errorMessageMovie != '' && idx == 0"
+                  >
+                    {{ errorMessageMovie }}
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-2">
+                      <label class="col-form-label">
+                        Enter Movie {{ idx + 1 }} :</label
+                      >
+                    </div>
+
+                    <div class="col-sm-2">
+                      <input
+                        id="movieName{{ idx }}"
+                        type="text"
+                        class="form-control"
+                        placeholder="Movie Name"
+                        formControlName="movieName"
+                      />
+                    </div>
+                    <div class="col-sm-2">
+                      <input
+                        class="form-control"
+                        id="directorName{{ idx }}"
+                        type="text"
+                        placeholder="Director Name"
+                        formControlName="directorName"
+                      />
+                    </div>
+
+                    <div class="col-sm-2">
+                      <input
+                        class="form-control"
+                        id="releaseYear{{ idx }}"
+                        type="number"
+                        placeholder="Release Year(YYYY)"
+                        formControlName="releaseYear"
+                      />
+                    </div>
+
+                    <div class="col-sm-2">
+                      <select
+                        name="status"
+                        class="form-control"
+                        id="status{{ idx }}"
+                        class="form-control form-select"
+                        formControlName="status"
+                      >
+                        <option value="-1" selected disabled hidden>
+                          Select Movie Status
+                        </option>
+                        <option
+                          *ngFor="let status of movieStatus | keyvalue"
+                          value="{{ status.key }}"
+                        >
+                          {{ status.value }}
+                        </option>
+                      </select>
+                    </div>
+                    <div class="col-sm-1">
+                      <button
+                        class="btn btn-warning"
+                        type="button"
+                        (click)="deleteMovie(idx)"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                    <div class="col-sm-1">
+                      <button
+                        class="btn btn-secondary"
+                        type="button"
+                        (click)="resetMovie(idx)"
+                      >
+                        Reset
+                      </button>
+                    </div>
+                  </div>
+                </ng-container>
+              </ng-container>
+            </div>
+          </ng-container>
+          <div class="col-sm-5 action-button d-flex justify-content-between">
+            <button
+              class="btn btn-warning col-sm-5 action-button"
+              type="button"
+              (click)="addMovie()"
+            >
+              Add Movie
+            </button>
+            <button
+              class="btn btn-secondary col-sm-5 action-button"
+              type="button"
+              (click)="deleteAllMovie()"
+              *ngIf="this.movieCount > 0"
+            >
+              Delete All Movies
+            </button>
+          </div>
+        </div>
+
+        <div class="row action-button d-flex justify-content-between">
+          <button class="btn btn-warning col-sm-2" type="submit">
+            Save Actor Details
+          </button>
+          <button
+            class="btn btn-secondary col-sm-2"
+            type="button"
+            (click)="resetActorForm()"
+          >
+            Reset
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

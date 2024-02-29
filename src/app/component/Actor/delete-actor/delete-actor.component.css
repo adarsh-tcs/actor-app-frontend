@@ -1,0 +1,8 @@
+.deleteTab {
+  background-color: rgb(226, 222, 222);
+  padding: 1rem;
+}
+
+mat-form-field {
+  width: 80%;
+}

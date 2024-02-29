@@ -1,0 +1,56 @@
+<mat-card>
+  <table mat-table [dataSource]="MovieList" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th [ngStyle]="{ width: '10%' }" mat-header-cell *matHeaderCellDef>
+        Sl No.
+      </th>
+      <td mat-cell *matCellDef="let element; let idx = index">
+        {{ this.paginator.pageIndex * paginator.pageSize + idx + 1 }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th [ngStyle]="{ width: '30%' }" mat-header-cell *matHeaderCellDef>
+        Movie Name
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.name | stringFormatter : "u" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="directorName">
+      <th [ngStyle]="{ width: '30%' }" mat-header-cell *matHeaderCellDef>
+        Director Name
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.directorName | stringFormatter : "t" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="releaseYear">
+      <th [ngStyle]="{ width: '10%' }" mat-header-cell *matHeaderCellDef>
+        Release Year
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.releaseYear }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th [ngStyle]="{ width: '20%' }" mat-header-cell *matHeaderCellDef>
+        Status
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.status | stringFormatter : "_" }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsName"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnsName"></tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[1, 2, 5]"
+    showFirstLastButtons
+    aria-label="Select page of Movie List"
+  >
+  </mat-paginator>
+</mat-card>

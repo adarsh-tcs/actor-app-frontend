@@ -1,0 +1,101 @@
+<!-- <div class="form-div-1">
+  <div class="card">
+    <h2 class="form-header">Movies</h2>
+    <div class="form-div-2">
+      <form [formGroup]="addMoviesForm">
+        <div class="form-group row">
+          <div class="col-sm-3">
+            <label for="movieName" class="col-form-label">Movie Name</label>
+          </div>
+          <div class="col-sm-6">
+            <input
+              id="movieName"
+              type="text"
+              placeholder="Movie Name"
+              class="form-control"
+              formControlName="movieName"
+            />
+          </div>
+          <div class="col-sm-3">
+            <span
+              class="help-block"
+              *ngIf="
+                !addMoviesForm.get('movieName')?.valid &&
+                addMoviesForm.get('movieName')?.touched
+              "
+            >
+              Enter Valid Movie Name</span
+            >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-3">
+            <label for="directorName" class="col-form-label"
+              >Director Name</label
+            >
+          </div>
+          <div class="col-sm-6">
+            <input
+              id="directorName"
+              type="text"
+              placeholder="Director Name"
+              class="form-control"
+              formControlName="directorName"
+            />
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-3">
+            <label for="releaseYear" class="col-form-label">Release Year</label>
+          </div>
+          <div class="col-sm-6">
+            <input
+              id="releaseYear"
+              type="text"
+              placeholder="Release Year"
+              class="form-control"
+              formControlName="releaseYear"
+            />
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-3">
+            <label for="status" class="col-form-label">Status</label>
+          </div>
+          <div class="col-sm-6">
+            <select
+              name="status"
+              id="status"
+              class="form-control form-select"
+              formControlName="status"
+            >
+              <option value="" selected disabled hidden>Select status</option>
+              <option *ngFor="let status of selectOptions" value="{{ status }}">
+                {{ status }}
+              </option>
+            </select>
+          </div>
+          <div class="col-sm-3">
+            <span
+              class="help-block"
+              *ngIf="
+                !addMoviesForm.get('status')?.valid &&
+                addMoviesForm.get('status')?.touched
+              "
+            >
+              Select Movie Status</span
+            >
+          </div>
+        </div>
+        <div class="d-flex justify-content-center action-button">
+          <button class="btn btn-warning col-sm-2">Add Movie</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> -->
+
+<p>Add Movies</p>

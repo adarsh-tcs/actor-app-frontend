@@ -1,0 +1,46 @@
+<nav class="navbar navbar-dark bg-secondary justify-content-between">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a href="#" class="navbar-brand">Movies</a>
+    </div>
+  </div>
+</nav>
+
+<nav mat-tab-nav-bar mat-stretch-tabs backgroundColor="accent" class="navbar2">
+  <ng-container *ngFor="let route of routerLink1">
+    <a
+      mat-tab-link
+      [routerLink]="route.path"
+      routerLinkActive
+      #rla="routerLinkActive"
+      [active]="rla.isActive"
+    >
+      {{ route.label }}
+    </a>
+  </ng-container>
+</nav>
+
+<!-- <div class="navbar2">
+  <div *ngFor="let a of arr" class="navbar3">
+    <p>hello</p>
+  </div>
+</div> -->
+
+<!--
+<mat-tab-group
+  mat-align-tabs="center"
+  animationDuration="1500ms"
+  mat-stretch-tabs
+  selectedIndex="0"
+  backgroundColor="accent"
+  color="primary"
+>
+  <mat-tab
+    label="Add Actor"
+    routerLinkActive="ture"
+    (click)="onAddActorTab()"
+  ></mat-tab>
+  <mat-tab label="Search Actor"></mat-tab>
+  <mat-tab label="Update Movie"></mat-tab>
+  <mat-tab label="Delete Movie"></mat-tab>
+</mat-tab-group> -->

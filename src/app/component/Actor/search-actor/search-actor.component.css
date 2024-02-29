@@ -1,0 +1,22 @@
+mat-form-field {
+  width: 80%;
+}
+
+.search-actor {
+  background-color: rgb(243, 240, 240);
+  padding: 1rem;
+}
+
+mat-expansion-panel {
+  margin-top: 2rem;
+  padding: 2rem;
+}
+
+.mat-accordion > .mat-expansion-panel-spacing:first-child {
+  margin-top: 2rem;
+}
+
+.expansion-panel-header {
+  font-weight: bold;
+  font-size: large;
+}

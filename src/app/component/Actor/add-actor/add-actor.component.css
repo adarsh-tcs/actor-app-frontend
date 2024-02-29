@@ -1,0 +1,19 @@
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+.card {
+  margin: 1%;
+}
+
+.movie-form {
+  margin-top: 2rem;
+}
+
+select.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+.mandatory-field {
+  color: red;
+}

@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+.form-header {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: rgb(148, 146, 146);
+}
+
+.form-div-2 {
+  padding: 3rem 5rem 5rem 5rem;
+  width: 100%;
+  align-items: stretch;
+  border: 1px solid black;
+}
+
+.form-div-1 {
+  margin: 0%;
+  padding: 0.2rem;
+  width: 100%;
+
+  background-color: rgb(243, 240, 240);
+}
+
+.global-invalid-alert {
+  background-color: #f74a44;
+  color: black;
+  padding: 0.3rem;
+}
+
+.form-group {
+  padding: 0.5rem;
+}
+
+.form-div-2 form .form-group input,
+.form-div-2 form .form-group select {
+  border: 1px solid black;
+}
+
+.action-button {
+  padding: 1rem;
+}
+
+.help-block {
+  color: red;
+}

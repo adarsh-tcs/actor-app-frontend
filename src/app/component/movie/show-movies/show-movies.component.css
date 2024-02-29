@@ -1,0 +1,16 @@
+table {
+  padding: 2rem;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+}
+
+table th {
+  font-size: large;
+  text-align: center;
+  color: white;
+  background-color: rgb(124, 121, 121);
+}
+:host .tabel {
+  margin-top: 5rem;
+}
